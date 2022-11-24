@@ -1,6 +1,6 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
 import './App.css';
-import { useState } from 'react';
+import ConnectButton from './components/ConnectButton/ConnectButton';
 
 function App() {
   const [walletAdress, setWalletAdress] = useState([])
@@ -15,11 +15,9 @@ function App() {
   return (
     <div className="App">
       <div>
-        Account: {walletAdress}
+        Account: {walletAdress && walletAdress}
       </div>
-      <button onClick={connectWallet}>
-        Connect Wallet
-      </button>
+      <ConnectButton connectWallet={connectWallet} />
     </div>
   );
 }
