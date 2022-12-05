@@ -1,23 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css';
-import ConnectButton from './components/ConnectButton/ConnectButton';
+import MyRoutes from './routers/MyRoutes';
 
 function App() {
-  const [walletAdress, setWalletAdress] = useState([])
-
-  const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      setWalletAdress(accounts)
-    }
-  }
-
   return (
-    <div className="App">
-      <div>
-        Account: {walletAdress && walletAdress}
-      </div>
-      <ConnectButton connectWallet={connectWallet} />
+    <div>
+      <MyRoutes />
     </div>
   );
 }
